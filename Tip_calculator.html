@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.main{
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  margin: 200px 300px;
+  margin-top: 70px;
+  padding: 20px;
+  width: auto;
+}
+.head{
+  padding: 10px;
+  text-align: center;
+}
+
+.content label,.content p{
+  margin: 10px;
+  font-size: large;
+}
+.content input{
+  margin: 10px;
+  width: 95%;
+  height: 22px;
+  padding: 7px;
+}
+.btn{
+  background-color: rgb(119, 199, 0);
+  font-weight: bolder;
+  font-size: larger;
+  color: white;
+  width: 97%;
+  height:40px;
+  border: none;
+  margin: 10px;
+}
+span{
+  font-size: 20px;
+  font-weight: bolder;
+}
+</style>
+<body>
+<div class="main">
+  <div class="head">
+    <h1>Tip Calculator</h1>
+  </div>
+
+  <div class="content">
+    <p>Enter the bill amount and tip percentage to calculate the total.</p>
+
+    <label id="amt" class="amt">
+      Bill amount:
+    </label><br>
+    <input id="bill" class="tip">
+
+
+    <br>
+    <label id="percent" class="percent">
+      Tip percentage:
+    </label><br>
+    <input id="tip" class="tip">
+
+    <br>
+    <button id="btn" class="btn" onclick="change()">CALCULATE</button>
+
+    <br>
+    <label for="tot">Total:</label>
+    <span id="total"></span>
+
+  </div>
+</div>
+</body>
+
+<script>
+const bill=document.getElementById("bill");
+const tip=document.getElementById("tip");
+const btn=document.getElementById("btn");
+const total=document.getElementById("total");
+
+function change(){
+  var a=Number(bill.value)
+  var b=Number(tip.value)
+
+  var res=(b/a)*100+a
+
+  total.textContent=res
+}
+
+
+</script>
+</html>
