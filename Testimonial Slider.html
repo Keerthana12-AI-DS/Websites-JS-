@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonial Slider</title>
+</head>
+
+<style>
+*{
+  overflow: hidden;
+}
+.main{
+  background-color: slateblue;
+  margin: 150px 350px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  height: 250px;
+  width: 550px;
+}
+img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  left: 45%;
+  position: absolute; 
+   transform: translateX(-20%);
+   bottom: 340px
+}
+.content{
+  color: white;
+  text-align: left;
+}
+p{
+  font-weight: 100px;
+  padding: 60px 10px 10px 10px;
+}
+h4{
+  padding: 0px 10px;
+}
+
+</style>
+
+<body>
+<div class="main">
+
+  <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80" 
+  alt="user-image" id="image">
+
+ <div class="content">
+  <p id="text">
+        This is simply unbelievable! I would be lost without Apple. The very
+        best. Not able to tell you how happy I am with Apple.
+  </p>
+  <h4 id="username">Cherise G</h4>  
+ </div>
+</div>  
+</body>
+
+<script>
+
+const result=[
+  {
+    name: "Cherise G",
+    photoUrl:
+      "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80",
+    text: "This is simply unbelievable! I would be lost without Apple. The very best. Not able to tell you how happy I am with Apple.",
+  },
+  {
+    name: "Rosetta Q",
+    photoUrl:
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80",
+    text: "I would also like to say thank you to all your staff. Wow what great service, I love it! Apple impressed me on multiple levels.",
+  },
+  {
+    name: "Constantine V",
+    photoUrl:
+      "https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80",
+    text: "Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. The very best.",
+  },
+];
+const image=document.getElementById("image");
+const text=document.getElementById("text");
+const username=document.getElementById("username");
+
+let index=0;
+
+change();
+
+function change(){
+  const {name, photoUrl, text} =result[index];
+  image.src=photoUrl;
+  text.innerText=text;
+  username.innerText=name;
+  index++;
+
+  if(index === result.length){
+    index=0;
+  }
+  setTimeout(()=>
+  {
+    change();
+  },1000);
+  
+}
+
+</script>
+</html>
