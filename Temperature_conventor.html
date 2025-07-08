@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+</head>
+
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to left bottom, lightgreen, lightblue);
+  overflow: hidden;
+}
+.main{
+  box-shadow: 0 0 10px rgba(0, 0, 0,0.5);
+  border-radius: 10px;
+  margin: 150px 370px;
+  width:500px;
+} 
+
+.head{
+  color: darkcyan;
+  text-align: center;
+  padding: 20px;
+  margin: 20px 10px;
+}
+.content label{
+  display: inline-block;
+  margin: 20px;
+  color: rgb(1, 121, 121);
+  font-size: larger;
+  font-weight: bolder;
+}
+.content input{
+  padding: 5px;
+  width:200px;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  float: right;
+ margin-right: 70px;
+ outline: none;
+}
+
+
+
+
+</style>
+
+
+<body>
+
+<div class="main">
+  <div class="head">
+    <h1>Temperature Converter</h1>
+  </div>
+
+  <div class="content">
+
+    <label for="Celsius">Celsius: </label> 
+    <input onchange="change(event)" id="cel"  name="celsius" placeholder="Enter Temperature">
+    <br>
+
+    <label for="Fahrenheit">Fahrenheit: </label> 
+    <input onchange="change(event)" id="fah"  name="fahrenheit" placeholder="Enter Temperature">
+    <br>
+
+    <label for="Kelvin">Kelvin: </label> 
+    <input onchange="change(event)" id="kel" 
+      name="kelvin" placeholder="Enter Temperature">
+  </div>
+</div> 
+</body>
+
+<script>
+const cel=document.getElementById("cel");
+const fah=document.getElementById("fah");
+const kel=document.getElementById("kel");
+
+function change(event){
+  const currentValue=+event.target.value;
+
+  switch(event.target.name){
+
+    case "celsius":
+      kel.value=(currentValue + 273.32).toFixed(2);
+      fah.value=(currentValue * 1.8 + 32).toFixed(2);
+      break;
+
+    case "fahrenheit":
+      cel.value=((currentValue - 32) / 1.8).toFixed(2);
+      kel.value=((currentValue - 32) / 1.8 + 273.32).toFixed(2);
+      break;
+    
+    case "kelvin": 
+      cel.value=(currentValue - 273.32).toFixed(2);
+      fah.value=((currentValue - 273.32) * 1.8 + 32).toFixed(2);
+      break;
+
+    default:
+      break;
+  }
+}
+
+</script>
+</html>
