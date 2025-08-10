@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+</head>
+
+<style>
+*{
+  margin: 0;
+  padding: 0;
+}
+.main{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  width: 500px;
+  height: auto;
+  margin: 100px auto auto 400px;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+.head{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form .one{
+  font-size: large;
+  font-weight: bolder;
+  text-align: center;
+  margin: 10px;
+}
+input{
+  margin: 10px 100px;
+  width: 60%;
+  height: 30px;
+}
+button{
+  width: 60%;
+  height: 30px;
+  margin: 10px 100px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.two{
+  text-align: center;
+  font-size: large;
+  font-weight: bolder;
+}
+
+</style>
+
+<body>
+  <div class="main">
+
+    <div class="head">
+      <h1>Age Calculator</h1>
+    </div>
+    <div class="form">
+      <p class="one">Enter Your date of birth</p>
+      <input type="date" id="birthday" name="birthday">
+      <br>
+      <button id="btn">Calculate Age</button>
+      <p class="two" id="result">Your age is __ years old--</p>
+  </div>
+  
+</body>
+
+<script>
+
+const btn = document.getElementById("btn");
+const birthday = document.getElementById("birthday");
+const result = document.getElementById("result");
+
+btn.addEventListener("click", function() {
+    const birthDate = new Date(birthday.value);
+    const today = new Date();
+    
+    if (isNaN(birthDate)) {
+        result.textContent = "Please enter a valid date.";
+        return;
+    }
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    result.textContent = `Your age is ${age} years old`;
+});
+
+</script>
+</html>
